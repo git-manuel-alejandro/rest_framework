@@ -27,11 +27,13 @@ BASE_APPS = [
     'django.contrib.staticfiles',
 ]
 LOCAL_APSS = [
+    'apps.users',
 
 ]
 
 THIRD_APPS = [
     'rest_framework',
+    'simple_history',
 ]
 INSTALLED_APPS = BASE_APPS+LOCAL_APSS+THIRD_APPS
 MIDDLEWARE = [
@@ -42,6 +44,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'simple_history.middleware.HistoryRequestMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -95,6 +98,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+AUTH_USER_MODEL = 'users.User'
 
 
 # Static files (CSS, JavaScript, Images)
